@@ -7,6 +7,7 @@ School management system.
 ### Prerequisites
 
 - PHP 7.3.9 or higher
+- [Symfony CLI](https://symfony.com/download)
 
 ### Installation
 
@@ -21,4 +22,7 @@ composer install
 
 ## Develop
 
-
+Start the local Symfony web server
+```sh
+ symfony server:start
+```
