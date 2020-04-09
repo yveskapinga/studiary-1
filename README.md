@@ -6,7 +6,7 @@ School management system.
 
 ### Prerequisites
 
-- PHP 7.4.0 or higher
+- PHP 7.3.9 or higher
 
 ### Installation
 
