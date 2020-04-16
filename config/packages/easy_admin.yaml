@@ -3,3 +3,5 @@ easy_admin:
     entities:
         - App\Entity\User
         - App\Entity\Grade
+        - App\Entity\Lesson
+        - App\Entity\Subject
