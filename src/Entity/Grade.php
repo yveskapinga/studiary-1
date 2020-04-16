@@ -69,6 +69,9 @@ class Grade
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
             $user->setGrade($this);
+
+            var_dump($user->setGrade($this));
+            die;
         }
 
         return $this;
