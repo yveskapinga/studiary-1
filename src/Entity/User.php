@@ -46,12 +46,12 @@ class User implements UserInterface
     private $lastName;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="students")
      */
     private $grade;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="teacher")
      */
     private $lessons;
 
