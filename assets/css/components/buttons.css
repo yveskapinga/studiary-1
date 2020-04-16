@@ -1,5 +1,6 @@
 .btn {
   @apply py-1 px-3;
+  @apply rounded;
 }
 
 .btn-primary {
