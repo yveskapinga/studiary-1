@@ -1,3 +1,30 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+
+#Home
+index:
+  path: /
+  controller: App\Controller\HomeController::index
+
+#Login
+login: 
+  path: /login
+  controller: App\Controller\SecurityController::login
+
+#Logout
+logout: 
+  path: /logout
+  controller: App\Controller\SecurityController::logout
+
+#NoteRegister
+note_register: 
+  path: /notes/addnote
+  controller: App\Controller\NoteRegistrationController::index
+
+#Revele
+releve: 
+  path: /releve
+  controller: App\Controller\ReleveController::index
+
+#Calendrier
+calendar:
+  path: /calendar
+  controller: App\Controller\CalendarController::index
