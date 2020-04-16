@@ -186,7 +186,7 @@ class User implements UserInterface
     {
         if (!$this->lessons->contains($lesson)) {
             $this->lessons[] = $lesson;
-            $lesson->setUser($this);
+            $lesson->setTeacher($this);
         }
 
         return $this;
@@ -197,8 +197,8 @@ class User implements UserInterface
         if ($this->lessons->contains($lesson)) {
             $this->lessons->removeElement($lesson);
             // set the owning side to null (unless already changed)
-            if ($lesson->getUser() === $this) {
-                $lesson->setUser(null);
+            if ($lesson->getTeacher() === $this) {
+                $lesson->setTeacher(null);
             }
         }
 
