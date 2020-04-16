@@ -1,0 +1,7 @@
+.btn {
+  @apply py-1 px-3;
+}
+
+.btn-primary {
+  @apply text-white bg-black;
+}

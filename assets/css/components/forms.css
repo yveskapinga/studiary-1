@@ -2,6 +2,6 @@
   @apply border-b border-gray-500;
 
   &:focus {
-    @apply outline-none;
+    @apply outline-none border-black;
   }
 }
