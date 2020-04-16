@@ -43,6 +43,11 @@ class User implements UserInterface
      */
     private $surname;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="users")
+     */
+    private $grade;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +146,18 @@ class User implements UserInterface
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getGrade(): ?Grade
+    {
+        return $this->grade;
+    }
+
+    public function setGrade(?Grade $grade): self
+    {
+        $this->grade = $grade;
 
         return $this;
     }
