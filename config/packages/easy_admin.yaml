@@ -1,7 +1,17 @@
 easy_admin:
     site_name: 'Studiary'
     entities:
-        - App\Entity\User
-        - App\Entity\Grade
-        - App\Entity\Lesson
-        - App\Entity\Subject
+        User:
+            class: App\Entity\User
+        Lesson:
+            class: App\Entity\Lesson
+        Subject:
+            class: App\Entity\Subject
+            form:
+                fields:
+                    - 'name'
+        Grade:
+            class: App\Entity\Grade
+            form:
+                fields:
+                    - 'name'
