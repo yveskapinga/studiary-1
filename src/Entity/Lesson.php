@@ -51,6 +51,11 @@ class Lesson
      */
     private $end_time;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="lessons")
+     */
+    private $Grade;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +141,18 @@ class Lesson
     public function setEndTime(\DateTimeInterface $end_time): self
     {
         $this->end_time = $end_time;
+
+        return $this;
+    }
+
+    public function getGrade(): ?Grade
+    {
+        return $this->Grade;
+    }
+
+    public function setGrade(?Grade $Grade): self
+    {
+        $this->Grade = $Grade;
 
         return $this;
     }

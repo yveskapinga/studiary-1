@@ -28,9 +28,15 @@ class Grade
      */
     private $students;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="Grade")
+     */
+    private $lessons;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
+        $this->lessons = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,37 @@ class Grade
             // set the owning side to null (unless already changed)
             if ($user->getGrade() === $this) {
                 $user->setGrade(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Lesson[]
+     */
+    public function getLessons(): Collection
+    {
+        return $this->lessons;
+    }
+
+    public function addLesson(Lesson $lesson): self
+    {
+        if (!$this->lessons->contains($lesson)) {
+            $this->lessons[] = $lesson;
+            $lesson->setGrade($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesson(Lesson $lesson): self
+    {
+        if ($this->lessons->contains($lesson)) {
+            $this->lessons->removeElement($lesson);
+            // set the owning side to null (unless already changed)
+            if ($lesson->getGrade() === $this) {
+                $lesson->setGrade(null);
             }
         }
 
