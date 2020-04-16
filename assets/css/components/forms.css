@@ -1,0 +1,7 @@
+.form-control {
+  @apply border-b border-gray-500;
+
+  &:focus {
+    @apply outline-none;
+  }
+}

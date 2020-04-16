@@ -1,9 +1,6 @@
 @import "tailwindcss/base";
 
 @import "tailwindcss/components";
+@import "./components/forms.css";
 
 @import "tailwindcss/utilities";
-
-body {
-    background-color: lightgrey;
-}
