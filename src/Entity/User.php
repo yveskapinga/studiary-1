@@ -38,12 +38,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $surname;
+    private $lastName;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="users")
@@ -138,26 +138,26 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->name;
+        return $this->firstName;
     }
 
-    public function setName(string $name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getSurname(): ?string
+    public function getLastName(): ?string
     {
-        return $this->surname;
+        return $this->lastName;
     }
 
-    public function setSurname(string $surname): self
+    public function setLastName(string $lastName): self
     {
-        $this->surname = $surname;
+        $this->lastName = $lastName;
 
         return $this;
     }
