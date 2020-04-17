@@ -24,5 +24,12 @@ composer install
 
 Start the local Symfony web server
 ```sh
- symfony server:start
+symfony server:start
 ```
+
+Or with the PHP built-in server
+```sh
+php -S localhost:8000 -t public/
+```
+
+These commands start a development server on http://localhost:8000.
