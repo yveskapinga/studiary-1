@@ -26,11 +26,17 @@ class Grade
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="grade")
      */
-    private $users;
+    private $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="Grade")
+     */
+    private $lessons;
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->students = new ArrayCollection();
+        $this->lessons = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -53,15 +59,15 @@ class Grade
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): Collection
+    public function getStudents(): Collection
     {
-        return $this->users;
+        return $this->students;
     }
 
     public function addUser(User $user): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
+        if (!$this->students->contains($user)) {
+            $this->students[] = $user;
             $user->setGrade($this);
         }
 
@@ -70,8 +76,8 @@ class Grade
 
     public function removeUser(User $user): self
     {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
+        if ($this->students->contains($user)) {
+            $this->students->removeElement($user);
             // set the owning side to null (unless already changed)
             if ($user->getGrade() === $this) {
                 $user->setGrade(null);
@@ -79,5 +85,41 @@ class Grade
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Lesson[]
+     */
+    public function getLessons(): Collection
+    {
+        return $this->lessons;
+    }
+
+    public function addLesson(Lesson $lesson): self
+    {
+        if (!$this->lessons->contains($lesson)) {
+            $this->lessons[] = $lesson;
+            $lesson->setGrade($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesson(Lesson $lesson): self
+    {
+        if ($this->lessons->contains($lesson)) {
+            $this->lessons->removeElement($lesson);
+            // set the owning side to null (unless already changed)
+            if ($lesson->getGrade() === $this) {
+                $lesson->setGrade(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

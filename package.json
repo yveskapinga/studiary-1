@@ -15,6 +15,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "autoprefixer": "^9.7.6",
+        "postcss-nested": "^4.2.1",
         "tailwindcss": "^1.2.0"
     }
 }
