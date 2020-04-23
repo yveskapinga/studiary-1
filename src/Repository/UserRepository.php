@@ -8,6 +8,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\QueryBuilder;
+
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -64,4 +66,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+
+    /**
+     * Admin filter: don't display past events.
+     */
+    public static function adminQueryBuilderForTeacher(UserRepository $r): QueryBuilder
+    {
+        $role = "ROLE_TEACHER";
+        $qb = $r->createQueryBuilder('user');
+        $qb->select('user')
+                ->where('user.roles LIKE :roles')
+                ->setParameter('roles', '%"' . $role . '"%');
+        return $qb;
+    }
 }
