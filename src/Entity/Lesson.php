@@ -54,7 +54,7 @@ class Lesson
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="lessons")
      */
-    private $Grade;
+    private $grade;
 
     public function getId(): ?int
     {
@@ -147,12 +147,12 @@ class Lesson
 
     public function getGrade(): ?Grade
     {
-        return $this->Grade;
+        return $this->grade;
     }
 
-    public function setGrade(?Grade $Grade): self
+    public function setGrade(?Grade $grade): self
     {
-        $this->Grade = $Grade;
+        $this->grade = $grade;
 
         return $this;
     }
