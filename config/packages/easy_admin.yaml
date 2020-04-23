@@ -20,23 +20,6 @@ easy_admin:
             new:
                 fields:
                     - 'password'
-        Teacher:
-            class: App\Entity\User
-            list:
-                dql_filter: "entity.roles LIKE '%%ROLE_TEACHER%%'"
-                fields:
-                    - 'id'
-                    - 'email'
-                    - 'firstName'
-                    - 'lastName'
-            form:
-                fields:
-                    - 'email'
-                    - 'firstName'
-                    - 'lastName'
-            new:
-                fields:
-                    - 'password'
         Lesson:
             class: App\Entity\Lesson
             form:
