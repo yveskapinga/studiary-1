@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Subject;
 use App\Entity\Grade;
-
+use App\Entity\Lesson;
 
 class AppFixtures extends Fixture
 {
@@ -38,6 +38,19 @@ class AppFixtures extends Fixture
             $grade = new Grade();
             $grade->setName("Classe n°".$i);
             $manager->persist($grade);
+        }
+
+        // Generate Lesson (5)
+        for ($i = 1; $i < 6; $i++) {
+            $lesson = new Lesson();
+            $lesson->setName("Lesson n°".$i);
+            $lesson->setStartDate(new \DateTime('0'.$i.'/06/2020'));
+            $lesson->setEndDate(new \DateTime('0'.$i.'/06/2020'));
+
+            $lesson->setStartTime(new \DateTime('1'.$i.':00'));
+            $lesson->setEndTime(new \DateTime('1'.($i+1).':00'));
+
+            $manager->persist($lesson);
         }
 
 
