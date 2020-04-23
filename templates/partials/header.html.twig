@@ -1,11 +1,19 @@
-<header>
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as
-            {{ app.user.email }},
-            <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% else %}
-        Login
-    {% endif %}
+<header class="py-2 border-b border-gray-300">
+    <div class="container">
+        {% if app.user %}
+            {% set user = app.user %}
+            <div class="flex items-center text-sm">
+                <div>
+                    <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
+                    ({{ user.email }})
+                </div>
+            </div>
+            {% if 'ROLE_STUDENT' in user.roles %}
+                {{ user.grade }}
+            {% elseif 'ROLE_TEACHER' in user.roles %}
+                t
+            {% endif %}
+            {#<a href="{{ path('app_logout') }}">Logout</a>#}
+        {% endif %}
+    </div>
 </header>
