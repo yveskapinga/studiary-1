@@ -1,6 +1,10 @@
 <header class="py-4 border-b border-gray-300">
     <div class="container flex justify-between text-sm">
         <div class="flex items-center">
+            <h1 class="text-base font-semibold" href="{{ path('index') }}">
+                Studiary
+            </h1>
+
             {% if app.user %}
                 {% set user = app.user %}
                 <div>
