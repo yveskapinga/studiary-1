@@ -1,19 +1,26 @@
 <header class="py-4 border-b border-gray-300">
-    <div class="container">
-        {% if app.user %}
-            {% set user = app.user %}
-            <div class="flex items-center text-sm">
+    <div class="container flex justify-between text-sm">
+        <div class="flex items-center">
+            {% if app.user %}
+                {% set user = app.user %}
                 <div>
                     <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
                     ({{ user.email }})
                 </div>
-            </div>
-            {% if 'ROLE_STUDENT' in user.roles %}
-                {{ user.grade }}
-            {% elseif 'ROLE_TEACHER' in user.roles %}
-                t
+                {% if 'ROLE_STUDENT' in user.roles %}
+                    {{ user.grade }}
+                {% elseif 'ROLE_TEACHER' in user.roles %}
+                    t
+                {% endif %}
             {% endif %}
-            {#<a href="{{ path('app_logout') }}">Logout</a>#}
-        {% endif %}
+        </div>
+
+        <div>
+            {% if app.user %}
+                <a class="text-gray-700" href="{{ path('logout') }}">Logout</a>
+            {% else %}
+                <a class="btn btn-primary" href="{{ path('login') }}">Login</a>
+            {% endif %}
+        </div>
     </div>
 </header>

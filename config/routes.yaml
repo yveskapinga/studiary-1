@@ -4,7 +4,7 @@ index:
   controller: App\Controller\HomeController::index
 
 # Login
-login: 
+login:
   path: /login
   controller: App\Controller\SecurityController::login
 

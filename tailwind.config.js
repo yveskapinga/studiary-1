@@ -24,7 +24,7 @@ module.exports = {
       const containers = {
         '.container': {
           width: '90%',
-          maxWidth: '1024px',
+          maxWidth: '980px',
           marginLeft: 'auto',
           marginRight: 'auto'
         }
