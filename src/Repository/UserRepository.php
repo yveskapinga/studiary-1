@@ -70,13 +70,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Admin filter: don't display past events.
      */
-    public static function adminQueryBuilderForTeacher(UserRepository $r): QueryBuilder
+    public static function adminQueryBuilderForTeacher(UserRepository $userRepository): QueryBuilder
     {
         $role = "ROLE_TEACHER";
-        $qb = $r->createQueryBuilder('user');
-        $qb->select('user')
-                ->where('user.roles LIKE :roles')
-                ->setParameter('roles', '%"' . $role . '"%');
-        return $qb;
+        $queryBuilder = $userRepository->createQueryBuilder('user');
+        $queryBuilder->select('user')
+            ->where('user.roles LIKE :roles')
+            ->setParameter('roles', '%"' . $role . '"%');
+        return $queryBuilder;
     }
 }
