@@ -33,10 +33,10 @@ easy_admin:
             form:
                 fields:
                     - 'name'
-                    - 'startDate'
-                    - 'endDate'
-                    - 'startTime'
-                    - 'endTime'
+                    - { property: 'startDate', type: 'date' }
+                    - { property: 'endDate', type: 'date' }
+                    - { property: 'startTime', type: 'time' }
+                    - { property: 'endTime', type: 'time' }
                     - 'teacher'
                     - 'subject'
                     - 'grade'
