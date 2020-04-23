@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% if block("title") is defined %}{{ block("title") }} - {% endif %}Studiary</title>
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}{% endblock %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

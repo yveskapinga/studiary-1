@@ -12,18 +12,3 @@ login:
 logout: 
   path: /logout
   controller: App\Controller\SecurityController::logout
-
-# NoteRegister
-note_register: 
-  path: /notes/addnote
-  controller: App\Controller\NoteRegistrationController::index
-
-# Releve
-releve: 
-  path: /releve
-  controller: App\Controller\ReleveController::index
-
-# Calendar
-calendar:
-  path: /calendar
-  controller: App\Controller\CalendarController::index

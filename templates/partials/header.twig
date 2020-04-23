@@ -2,8 +2,8 @@
     <div class="container flex justify-between text-sm">
         <div class="flex items-center">
             {% if not app.user %}
-                <h1 class="text-base font-semibold tracking-tight" href="{{ path('index') }}">
-                    Studiary
+                <h1 class="text-base font-semibold tracking-tight">
+                    <a href="{{ path('index') }}">Studiary</a>
                 </h1>
             {% else %}
                 {% set user = app.user %}
@@ -12,7 +12,8 @@
                     ({{ user.email }})
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
-                    <div class="ml-2">·<span class="ml-2">{{ user.grade }}</span></div>
+                    <div class="ml-2">·<span class="ml-2">{{ user.grade }}</span>
+                    </div>
                 {% endif %}
             {% endif %}
         </div>
@@ -21,7 +22,7 @@
             {% if app.user %}
                 <a class="text-gray-700" href="{{ path('logout') }}">Logout</a>
             {% else %}
-                <a class="block btn btn-primary" href="{{ path('login') }}">Login</a>
+                <a class="block btn btn-black" href="{{ path('login') }}">Login</a>
             {% endif %}
         </div>
     </div>

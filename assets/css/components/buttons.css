@@ -1,8 +1,20 @@
 .btn {
+  @apply inline-block;
+  @apply text-center;
   @apply py-1 px-3;
   @apply rounded;
+
+  &:disabled,
+  &.disabled {
+    background-color: theme('colors.gray.400');
+    cursor: default;
+  }
 }
 
-.btn-primary {
+.btn-black {
   @apply text-white bg-black;
+
+  &:not(.disabled):not(:disabled):hover {
+    @apply bg-gray-800;
+  }
 }
