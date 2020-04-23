@@ -1,18 +1,18 @@
 <header class="py-4 border-b border-gray-300">
     <div class="container flex justify-between text-sm">
         <div class="flex items-center">
-            <h1 class="text-base font-semibold" href="{{ path('index') }}">
-                Studiary
-            </h1>
-
-            {% if app.user %}
+            {% if not app.user %}
+                <h1 class="text-base font-semibold tracking-tight" href="{{ path('index') }}">
+                    Studiary
+                </h1>
+            {% else %}
                 {% set user = app.user %}
                 <div>
                     <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
                     ({{ user.email }})
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
-                    <div class="ml-4">{{ user.grade }}</div>
+                    <div class="ml-2">·<span class="ml-2">{{ user.grade }}</span></div>
                 {% endif %}
             {% endif %}
         </div>
