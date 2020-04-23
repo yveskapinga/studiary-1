@@ -1,0 +1,14 @@
+.form-label {
+  @apply mb-2;
+  @apply font-semibold;
+}
+
+.form-control {
+  @apply w-full;
+  @apply py-1;
+  @apply border-b border-gray-500;
+
+  &:focus {
+    @apply outline-none border-black;
+  }
+}

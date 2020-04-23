@@ -38,20 +38,20 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $surname;
+    private $lastName;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Grade", inversedBy="students")
      */
     private $grade;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="teacher")
      */
     private $lessons;
 
@@ -89,7 +89,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -116,7 +116,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -143,26 +143,26 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->name;
+        return $this->firstName;
     }
 
-    public function setName(string $name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getSurname(): ?string
+    public function getLastName(): ?string
     {
-        return $this->surname;
+        return $this->lastName;
     }
 
-    public function setSurname(string $surname): self
+    public function setLastName(string $lastName): self
     {
-        $this->surname = $surname;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -191,7 +191,7 @@ class User implements UserInterface
     {
         if (!$this->lessons->contains($lesson)) {
             $this->lessons[] = $lesson;
-            $lesson->setUser($this);
+            $lesson->setTeacher($this);
         }
 
         return $this;
@@ -202,11 +202,16 @@ class User implements UserInterface
         if ($this->lessons->contains($lesson)) {
             $this->lessons->removeElement($lesson);
             // set the owning side to null (unless already changed)
-            if ($lesson->getUser() === $this) {
-                $lesson->setUser(null);
+            if ($lesson->getTeacher() === $this) {
+                $lesson->setTeacher(null);
             }
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return sprintf("%s %s (%s)", $this->firstName, $this->lastName, $this->email);
     }
 }

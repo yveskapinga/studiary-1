@@ -8,6 +8,7 @@ School management system.
 
 - PHP 7.3.9 or higher
 - [Symfony CLI](https://symfony.com/download)
+- [Node.js](https://nodejs.org/en/)
 
 ### Installation
 
@@ -24,5 +25,12 @@ composer install
 
 Start the local Symfony web server
 ```sh
- symfony server:start
+symfony server:start
 ```
+
+Or with the PHP built-in server
+```sh
+php -S localhost:8000 -t public/
+```
+
+These commands start a development server on http://localhost:8000.
