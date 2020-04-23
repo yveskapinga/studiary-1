@@ -17,23 +17,14 @@ easy_admin:
                     - 'firstName'
                     - 'lastName'
                     - 'grade'
-            new:
-                fields:
-                    - 'password'
-        Teacher:
-            class: App\Entity\User
-            list:
-                dql_filter: "entity.roles LIKE '%%ROLE_TEACHER%%'"
-                fields:
-                    - 'id'
-                    - 'email'
-                    - 'firstName'
-                    - 'lastName'
-            form:
-                fields:
-                    - 'email'
-                    - 'firstName'
-                    - 'lastName'
+                    -   property: 'roles'
+                        label: 'Role'
+                        type: 'choice'
+                        type_options:
+                            mapped: true
+                            expanded: true
+                            multiple: true
+                            choices: { 'Teacher': 'ROLE_TEACHER', 'Student': 'ROLE_STUDENT'  }
             new:
                 fields:
                     - 'password'
