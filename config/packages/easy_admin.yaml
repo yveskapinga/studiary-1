@@ -37,7 +37,7 @@ easy_admin:
                     - { property: 'endDate', type: 'date' }
                     - { property: 'startTime', type: 'time' }
                     - { property: 'endTime', type: 'time' }
-                    - 'teacher'
+                    - { property: 'teacher', type: 'entity', type_options: { class: 'App\Entity\User', multiple: false, query_builder: 'App\Repository\UserRepository::adminQueryBuilderForTeacher' }}
                     - 'subject'
                     - 'grade'
         Subject:
