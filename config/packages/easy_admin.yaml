@@ -17,6 +17,14 @@ easy_admin:
                     - 'firstName'
                     - 'lastName'
                     - 'grade'
+                    -   property: 'roles'
+                        label: 'Role'
+                        type: 'choice'
+                        type_options:
+                            mapped: true
+                            expanded: true
+                            multiple: true
+                            choices: { 'Teacher': 'ROLE_TEACHER', 'Student': 'ROLE_STUDENT'  }
             new:
                 fields:
                     - 'password'
@@ -25,10 +33,10 @@ easy_admin:
             form:
                 fields:
                     - 'name'
-                    - 'startDate'
-                    - 'endDate'
-                    - 'startTime'
-                    - 'endTime'
+                    - { property: 'startDate', type: 'date' }
+                    - { property: 'endDate', type: 'date' }
+                    - { property: 'startTime', type: 'time' }
+                    - { property: 'endTime', type: 'time' }
                     - 'teacher'
                     - 'subject'
                     - 'grade'

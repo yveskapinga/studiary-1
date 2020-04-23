@@ -19,7 +19,7 @@ class Lesson
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lessons")
      */
-    private $teacher;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Subject", inversedBy="lessons")
@@ -61,14 +61,14 @@ class Lesson
         return $this->id;
     }
 
-    public function getTeacher(): ?User
+    public function getUser(): ?User
     {
-        return $this->teacher;
+        return $this->user;
     }
 
-    public function setTeacher(?User $teacher): self
+    public function setUser(?User $user): self
     {
-        $this->teacher = $teacher;
+        $this->user = $user;
 
         return $this;
     }
