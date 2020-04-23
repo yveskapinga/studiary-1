@@ -156,4 +156,9 @@ class Lesson
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->subject.' - '.$this->start_date->format('d/m/Y').' at '.$this->start_time->format('H:i');
+    }
 }
