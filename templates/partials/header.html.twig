@@ -8,9 +8,7 @@
                     ({{ user.email }})
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
-                    {{ user.grade }}
-                {% elseif 'ROLE_TEACHER' in user.roles %}
-                    t
+                    <div class="ml-4">{{ user.grade }}</div>
                 {% endif %}
             {% endif %}
         </div>
