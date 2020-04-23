@@ -3,6 +3,7 @@ easy_admin:
     entities:
         User:
             class: App\Entity\User
+            controller: App\Controller\Admin\AdminController
             list:
                 fields:
                     - 'id'
@@ -27,7 +28,7 @@ easy_admin:
                             choices: { 'Teacher': 'ROLE_TEACHER', 'Student': 'ROLE_STUDENT'  }
             new:
                 fields:
-                    - { property: 'plainPassword', type: 'password', type_options: { required: false } }
+                    - { property: 'plainPassword', label: 'Password', type: 'password', type_options: { required: false } }
         Lesson:
             class: App\Entity\Lesson
             form:
