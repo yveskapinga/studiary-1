@@ -29,7 +29,7 @@ class Grade
     private $students;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="Grade")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="grade")
      */
     private $lessons;
 

@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Entity\Subject;
+use App\Entity\Grade;
 
 
 class AppFixtures extends Fixture
@@ -27,7 +28,16 @@ class AppFixtures extends Fixture
 
         // Generate Subject (5)
         for ($i = 0; $i < 5; $i++) {
-            $manager->persist($user);
+            $subject = new Subject();
+            $subject->setName("Matieres".$i);
+            $manager->persist($subject);
+        }
+        
+        // Generate Grade (5)
+        for ($i = 0; $i < 5; $i++) {
+            $grade = new Grade();
+            $grade->setName("Classe n°".$i);
+            $manager->persist($grade);
         }
 
 
