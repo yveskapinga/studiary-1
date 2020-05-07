@@ -25,7 +25,7 @@ class LessonRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('lesson')
                              ->where('lesson.grade = :grade')
                              ->setParameter('grade', $user->getGrade())
-                             ->orderBy('lesson.start_date', 'DESC');
+                             ->orderBy('lesson.start_date', 'ASC');
 
         $query = $queryBuilder->getQuery();
 
