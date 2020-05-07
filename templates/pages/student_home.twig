@@ -38,8 +38,13 @@
                 {% if notes %}
                     <div>
                         {% for note in notes %}
-                            <div class="flex">
-                                <div class="flex-grow">{{ note.subject }}</div>
+                            <div class="flex mb-2">
+                                <div class="flex-grow">
+                                    <div>{{ note.subject }}</div>
+                                    <div class="text-xs text-gray-600">
+                                        {{ note.date | date('D j M', timezone="Europe/Paris") }}
+                                    </div>
+                                </div>
                                 <div>{{ note.value }}</div>
                             </div>
                         {% endfor %}
