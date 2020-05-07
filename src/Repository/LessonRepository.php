@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Lesson;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,18 @@ class LessonRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Lesson::class);
+    }
+
+    public function findLessonsByUser(User $user): array
+    {
+        $queryBuilder = $this->createQueryBuilder('lesson')
+                             ->where('lesson.grade = :grade')
+                             ->setParameter('grade', $user->getGrade())
+                             ->orderBy('lesson.start_date', 'DESC');
+
+        $query = $queryBuilder->getQuery();
+
+        return $query->execute();
     }
 
     // /**

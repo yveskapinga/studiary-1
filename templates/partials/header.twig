@@ -12,7 +12,8 @@
                     ({{ user.email }})
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
-                    <div class="ml-2">·<span class="ml-2">{{ user.grade }}</span>
+                    <div class="ml-2">
+                        |<span class="ml-2">{{ user.grade }}</span>
                     </div>
                 {% endif %}
             {% endif %}

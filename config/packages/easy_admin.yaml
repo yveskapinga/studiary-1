@@ -31,15 +31,26 @@ easy_admin:
                     - { property: 'plainPassword', label: 'Password', type: 'password', type_options: { required: false } }
         Lesson:
             class: App\Entity\Lesson
+            list:
+                fields:
+                    - 'id'
+                    - 'subject'
+                    - 'name'
+                    - { property: 'startDate', type: 'date' }
+                    - { property: 'endDate', type: 'date' }
+                    - { property: 'startTime', type: 'time' }
+                    - { property: 'endTime', type: 'time' }
+                    - 'grade'
+                    - 'teacher'
             form:
                 fields:
+                    - 'subject'
                     - 'name'
                     - { property: 'startDate', type: 'date' }
                     - { property: 'endDate', type: 'date' }
                     - { property: 'startTime', type: 'time' }
                     - { property: 'endTime', type: 'time' }
                     - { property: 'teacher', type: 'entity', type_options: { class: 'App\Entity\User', multiple: false, query_builder: 'App\Repository\UserRepository::adminQueryBuilderForTeacher' }}
-                    - 'subject'
                     - 'grade'
         Subject:
             class: App\Entity\Subject
