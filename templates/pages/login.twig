@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/page.twig' %}
 
 {% block title %}
     Login
@@ -7,34 +7,26 @@
 {% block body %}
     <div class="w-64 mx-auto mt-8">
         <form class="w-full max-w-sm" method="post">
-
-
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            {% if app.user %}
-                <div class="mb-3">
-                    You are logged in as
-                    {{ app.user.username }},
-                    <a href="{{ path('app_logout') }}">Logout</a>
-                </div>
-            {% endif %}
-
-            <h1 class="text-3xl font-bold mb-4">Login</h1>
+            <h1 class="text-3xl font-bold tracking-tight mb-4">Log in to Studiary</h1>
 
             <div class="mb-8">
                 <label class="block form-label"
                        for="inputEmail">
                     Email
                 </label>
-                <input class="form-control"
-                       id="inputEmail"
-                       name="username"
-                       placeholder="johndoe@mail.com"
-                       required
-                       type="email"
-                       value="{{ last_username }}"
+                <input
+                    id="inputEmail"
+                    autofocus
+                    class="form-control"
+                    name="email"
+                    placeholder="johndoe@mail.com"
+                    required
+                    type="email"
+                    value="{{ last_username }}"
                 >
             </div>
 
@@ -44,8 +36,9 @@
                     Password
                 </label>
                 <input
-                    class="form-control"
                     id="inputPassword"
+                    class="form-control"
+                    name="password"
                     placeholder="********"
                     required
                     type="password"
@@ -64,9 +57,9 @@
                                 </label>
                             </div>
                         #}
-            <button class="btn btn-primary block ml-auto"
+            <button class="btn btn-black block ml-auto"
                     type="submit">
-                Sign in
+                Log in
             </button>
         </form>
     </div>
