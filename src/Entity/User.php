@@ -61,7 +61,7 @@ class User implements UserInterface
     private $lessons;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Note", mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Note", mappedBy="student", orphanRemoval=true)
      */
     private $notes;
 
@@ -252,7 +252,7 @@ class User implements UserInterface
     {
         if (!$this->notes->contains($note)) {
             $this->notes[] = $note;
-            $note->setUser($this);
+            $note->setStudent($this);
         }
 
         return $this;
@@ -263,8 +263,8 @@ class User implements UserInterface
         if ($this->notes->contains($note)) {
             $this->notes->removeElement($note);
             // set the owning side to null (unless already changed)
-            if ($note->getUser() === $this) {
-                $note->setUser(null);
+            if ($note->getStudent() === $this) {
+                $note->setStudent(null);
             }
         }
 

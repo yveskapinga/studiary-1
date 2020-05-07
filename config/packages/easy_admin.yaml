@@ -55,3 +55,12 @@ easy_admin:
                 fields:
                     - 'students'
                     - 'lessons'
+        Note:
+            class: App\Entity\Note
+            form:
+                fields:
+                    - 'subject'
+                    - { property: 'student', type: 'entity', type_options: { class: 'App\Entity\User', multiple: false, query_builder: 'App\Repository\UserRepository::adminQueryBuilderForStudent' }}
+                    - { property: 'value', label: 'Note' }
+                    - 'description'
+                    - 'date'

@@ -35,7 +35,7 @@ class Note
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="notes")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $student;
 
     /**
      * @ORM\Column(type="date")
@@ -83,14 +83,14 @@ class Note
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getStudent(): ?User
     {
-        return $this->user;
+        return $this->student;
     }
 
-    public function setUser(?User $user): self
+    public function setStudent(?User $student): self
     {
-        $this->user = $user;
+        $this->student = $student;
 
         return $this;
     }
