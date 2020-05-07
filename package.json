@@ -1,11 +1,4 @@
 {
-    "devDependencies": {
-        "@symfony/webpack-encore": "^0.28.2",
-        "core-js": "^3.0.0",
-        "postcss-loader": "^3.0.0",
-        "regenerator-runtime": "^0.13.2",
-        "webpack-notifier": "^1.6.0"
-    },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
@@ -18,5 +11,12 @@
         "autoprefixer": "^9.7.6",
         "postcss-nested": "^4.2.1",
         "tailwindcss": "^1.2.0"
+    },
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.28.2",
+        "core-js": "^3.0.0",
+        "postcss-loader": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "webpack-notifier": "^1.6.0"
     }
 }
