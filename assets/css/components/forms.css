@@ -14,7 +14,7 @@
 }
 
 .form-symf {
-  &>div{
+  & > div {
     @apply mb-4;
   }
   select{
@@ -27,16 +27,19 @@
     @apply pr-8; 
     @apply rounded; 
     @apply leading-tight;
-    &:focus{
+    
+    &:focus {
       @apply outline-none; 
       @apply bg-white; 
       @apply border-gray-500;
     }
   }
+
   input[type="text"]{
     @apply form-control;
   }
-  label{
+
+  label {
     @apply form-label;
     @apply block;
   }
