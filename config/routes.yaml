@@ -12,3 +12,9 @@ login:
 logout: 
   path: /logout
   controller: App\Controller\SecurityController::logout
+
+
+# Note
+note_index: 
+  path: /note
+  controller: App\Controller\SecurityController::index
