@@ -12,3 +12,36 @@
     @apply outline-none border-black;
   }
 }
+
+.form-symf {
+  & > div {
+    @apply mb-4;
+  }
+  select{
+    @apply bg-gray-200;
+    @apply border; 
+    @apply border-gray-200; 
+    @apply text-gray-700; 
+    @apply py-3; 
+    @apply px-4; 
+    @apply pr-8; 
+    @apply rounded; 
+    @apply leading-tight;
+    
+    &:focus {
+      @apply outline-none; 
+      @apply bg-white; 
+      @apply border-gray-500;
+    }
+  }
+
+  input[type="text"]{
+    @apply form-control;
+  }
+
+  label {
+    @apply form-label;
+    @apply block;
+  }
+  
+}

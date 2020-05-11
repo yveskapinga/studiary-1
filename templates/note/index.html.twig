@@ -1,0 +1,40 @@
+{% extends 'layouts/page.twig' %}
+
+{% block body %}
+	<div class="container pt-8 flex justify-center flex-col">
+		<h1 class="text-center text-2xl font-bold m-4">Noteboard</h1>
+
+		<table class="table-auto m-4 text-center">
+			<thead>
+				<tr>
+					<th class="px-4 py-2">Student</th>
+					<th class="px-4 py-2">Value</th>
+					<th class="px-4 py-2">Description</th>
+					<th class="px-4 py-2">Date</th>
+					<th class="px-4 py-2">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for note in notes %}
+					<tr>
+						<td class="border px-4 py-2">{{ note.student }}</td>
+						<td class="border px-4 py-2">{{ note.value }}</td>
+						<td class="border px-4 py-2">{{ note.description }}</td>
+						<td class="border px-4 py-2">{{ note.date ? note.date|date('Y-m-d') : '' }}</td>
+						<td class="border px-4 py-2">
+							<a class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" href="{{ path('note_edit', {'id': note.id}) }}">Edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="flex justify-center">
+            <a href="{{ path('note_new') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">Create new</a>
+        </div>
+	</div>
+{% endblock %}
