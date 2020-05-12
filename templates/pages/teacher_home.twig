@@ -10,9 +10,9 @@
             <h2 class="mb-3 text-lg font-semibold">Your next lessons</h2>
 
             {% if lessons %}
-                <div>
+                <div class="text-sm">
                     {% for lesson in lessons %}
-                        <div class="text-sm">
+                        <div>
                             <div class="py-1 px-2 font-semibold bg-gray-200 rounded">
                                 {{ lesson.startDate | date('D j M') }}
                             </div>
