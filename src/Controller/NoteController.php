@@ -28,11 +28,9 @@ class NoteController extends AbstractController
 
     public function new(Request $request): Response
     {
-
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
             $note = new Note();
             $form = $this->createForm(NoteType::class, $note);
             $form->handleRequest($request);
@@ -70,7 +68,6 @@ class NoteController extends AbstractController
 
     public function edit(Request $request, Note $note): Response
     {
-
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
@@ -95,17 +92,15 @@ class NoteController extends AbstractController
 
     public function delete(Request $request, Note $note): Response
     {
-        
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
-            if ($this->isCsrfTokenValid('delete' . $note->getId(), $request->request->get('_token'))) {
+            if ($this->isCsrfTokenValid('delete'.$note->getId(), $request->request->get('_token'))) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->remove($note);
                 $entityManager->flush();
             }
-    
+
             return $this->redirectToRoute('notes_index');
         }
 
