@@ -7,9 +7,8 @@
                 </h1>
             {% else %}
                 {% set user = app.user %}
-                <div>
-                    <span class="font-semibold">{{ user.firstName }} {{ user.lastName }}</span>
-                    ({{ user.email }})
+                <div class="font-semibold">
+                    {{ user.firstName }} {{ user.lastName }}
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
                     <div class="ml-2">
