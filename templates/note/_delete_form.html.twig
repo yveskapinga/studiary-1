@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('note_delete', {'id': note.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');" class="flex justify-center">
+<form method="post" action="{{ path('notes_delete', {'id': note.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');" class="flex justify-center">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ note.id) }}">
     <button class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded m-4">Delete</button>

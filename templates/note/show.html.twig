@@ -28,7 +28,7 @@
 
     <a href="{{ path('notes_index') }}">Back to the list</a>
 
-    <a href="{{ path('note_edit', {'id': note.id}) }}">Edit</a>
+    <a href="{{ path('notes_edit', {'id': note.id}) }}">Edit</a>
 
     {{ include('note/_delete_form.html.twig') }}
 {% endblock %}
