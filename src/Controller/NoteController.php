@@ -57,7 +57,6 @@ class NoteController extends AbstractController
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
             return $this->render('note/show.html.twig', [
                 'note' => $note,
             ]);
@@ -71,7 +70,6 @@ class NoteController extends AbstractController
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
             $form = $this->createForm(NoteType::class, $note);
             $form->handleRequest($request);
 
