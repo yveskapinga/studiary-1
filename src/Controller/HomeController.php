@@ -16,17 +16,29 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('login');
         }
 
-        if (in_array('ROLE_STUDENT', $user->getRoles())) {
+        // If the authenticated user is a teacher or a student,
+        // then render particular views
+        if (in_array('ROLE_TEACHER', $user->getRoles()) || in_array('ROLE_STUDENT', $user->getRoles())) {
+
+            // We need lessons for both teacher and student
             $repository = $this->getDoctrine()->getRepository(Lesson::class);
             $lessons = $repository->findLessonsByUser($user);
 
-            $repository = $this->getDoctrine()->getRepository(Note::class);
-            $notes = $repository->findNotesByUser($user);
+            if (in_array('ROLE_TEACHER', $user->getRoles())) {
+                return $this->render('pages/teacher_home.twig', [
+                    'lessons' => $lessons
+                ]);
+            }
 
-            return $this->render('pages/student_home.twig', [
-                'lessons' => $lessons,
-                'notes' => $notes,
-            ]);
+            if (in_array('ROLE_STUDENT', $user->getRoles())) {
+                $repository = $this->getDoctrine()->getRepository(Note::class);
+                $notes = $repository->findNotesByUser($user);
+
+                return $this->render('pages/student_home.twig', [
+                    'lessons' => $lessons,
+                    'notes' => $notes,
+                ]);
+            }
         }
 
         return $this->render('pages/home.twig');

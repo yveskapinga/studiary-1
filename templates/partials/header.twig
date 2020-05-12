@@ -7,20 +7,24 @@
                 </h1>
             {% else %}
                 {% set user = app.user %}
+                {% set currentPath = path(app.request.attributes.get('_route')) | trim('/') | split('/') %}
                 <div>
-                    <a class="text-base font-semibold"
-                       href="{{ path('index') }}">
-                        {{ user.firstName }} {{ user.lastName }}
-                    </a>
+                    <div class="flex items-center">
+                        <a class="text-base font-semibold"
+                            href="{{ path('index') }}">
+                            {{ user.firstName }} {{ user.lastName }}
+                        </a>
+                        {% for pageName in currentPath %}
+                            <span class="mx-2 text-gray-300">/</span>
+                            <span class="text-gray-600">{{ pageName }}</span>
+                        {% endfor %}
+                    </div>
                     {% if 'ROLE_TEACHER' in user.roles %}
                         <div class="text-xs text-gray-500">Teacher</div>
+                    {% elseif 'ROLE_STUDENT' in user.roles %}
+                        <div class="text-xs text-gray-500">{{ user.grade }}</div>
                     {% endif %}
                 </div>
-                {% if 'ROLE_STUDENT' in user.roles %}
-                    <div class="ml-2">
-                        |<span class="ml-2">{{ user.grade }}</span>
-                    </div>
-                {% endif %}
             {% endif %}
         </div>
 
