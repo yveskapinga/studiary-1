@@ -13,7 +13,7 @@
                         {{ user.firstName }} {{ user.lastName }}
                     </a>
                     {% if 'ROLE_TEACHER' in user.roles %}
-                        <div class="text-xs text-gray-400">Teacher</div>
+                        <div class="text-xs text-gray-500">Teacher</div>
                     {% endif %}
                 </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
