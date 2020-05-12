@@ -1,4 +1,5 @@
 .table {
+  @apply w-full;
   @apply border-separate;
   border-spacing: 0;
 
