@@ -12,16 +12,25 @@
             {% if lessons %}
                 <div>
                     {% for lesson in lessons %}
-                        <div>
-                            <div class="px-2 py-1 font-semibold bg-gray-200 rounded">
-                                {{ lesson.startDate | date('D j M', timezone="Europe/Paris") }}
+                        <div class="text-sm">
+                            <div class="py-1 px-2 font-semibold bg-gray-200 rounded">
+                                {{ lesson.startDate | date('D j M') }}
                             </div>
-                            <div class="flex">
-                                <div class="pl-4 pr-2 py-1 text-xs text-right">
-                                    <div>{{ lesson.startTime | date('H:i', timezone="Europe/Paris") }}</div>
-                                    <div>{{ lesson.endTime | date('H:i', timezone="Europe/Paris") }}</div>
+
+                            <div class="flex items-center">
+                                <div class="py-1 pl-4 pr-2 text-xs text-right">
+                                    <div>{{ lesson.startTime | date('H:i') }}</div>
+                                    <div>{{ lesson.endTime | date('H:i') }}</div>
                                 </div>
-                                <div class="px-2 py-1">{{ lesson.subject }}</div>
+
+                                <div class="py-1 px-2 truncate">
+                                    <div class="text-base truncate">{{ lesson.subject }}</div>
+                                    <div class="text-xs text-gray-600 truncate">{{ lesson.name }}</div>
+                                </div>
+
+                                <div class="py-1 pl-4 truncate">
+                                    {{ lesson.grade }}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
