@@ -1,7 +1,11 @@
 {{ form_start(form) }}
-{{ form_widget(form, {'attr': {'class': 'form-symf sm:max-w-md m-auto'}}) }}
-<div class="flex justify-center">
 
-	<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">{{ button_label|default('Add') }}</button>
-</div>
+{{ form_widget(form, {
+    'attr': {
+        'class': 'form-symf sm:max-w-sm text-sm'
+    }
+}) }}
+<button class="btn btn-black mt-4">
+    {{ button_label|default('Add note') }}
+</button>
 {{ form_end(form) }}

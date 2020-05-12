@@ -7,9 +7,10 @@
                 </h1>
             {% else %}
                 {% set user = app.user %}
-                <div class="text-base font-semibold">
+                <a class="text-base font-semibold"
+                   href="{{ path('index') }}">
                     {{ user.firstName }} {{ user.lastName }}
-                </div>
+                </a>
                 {% if 'ROLE_STUDENT' in user.roles %}
                     <div class="ml-2">
                         |<span class="ml-2">{{ user.grade }}</span>
