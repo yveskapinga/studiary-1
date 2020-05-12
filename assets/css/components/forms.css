@@ -5,11 +5,13 @@
 
 .form-control {
   @apply w-full;
-  @apply py-1;
-  @apply border-b border-gray-500;
+  @apply py-1 px-2;
+  @apply text-sm;
+  @apply border border-gray-200;
+  @apply rounded;
 
   &:focus {
-    @apply outline-none border-black;
+    @apply outline-none border-gray-600;
   }
 }
 

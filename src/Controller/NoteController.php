@@ -42,7 +42,7 @@ class NoteController extends AbstractController
                 $entityManager->persist($note);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('note_index');
+                return $this->redirectToRoute('notes_index');
             }
 
             return $this->render('note/new.html.twig', [
@@ -81,7 +81,7 @@ class NoteController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $this->getDoctrine()->getManager()->flush();
 
-                return $this->redirectToRoute('note_index');
+                return $this->redirectToRoute('notes_index');
             }
 
             return $this->render('note/edit.html.twig', [
@@ -106,7 +106,7 @@ class NoteController extends AbstractController
                 $entityManager->flush();
             }
     
-            return $this->redirectToRoute('note_index');
+            return $this->redirectToRoute('notes_index');
         }
 
         return $this->redirectToRoute('index');
