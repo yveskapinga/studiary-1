@@ -2,19 +2,44 @@
   @apply inline-block;
   @apply text-center;
   @apply py-1 px-3;
+  @apply text-sm;
   @apply rounded;
 
   &:disabled,
   &.disabled {
-    background-color: theme('colors.gray.400');
-    cursor: default;
+    cursor: not-allowed;
   }
 }
+
+
+/* Variants */
 
 .btn-black {
   @apply text-white bg-black;
 
-  &:not(.disabled):not(:disabled):hover {
+  &:hover {
     @apply bg-gray-800;
   }
+
+  &:disabled,
+  &.disabled {
+    @apply bg-gray-500;
+    cursor: default;
+  }
+}
+
+.btn-outline {
+  @apply border border-gray-200;
+  @apply rounded;
+
+  &:hover {
+    @apply border-black;
+  }
+}
+
+
+/* Sizes */
+
+.btn-sm {
+  @apply py-0 px-2;
 }

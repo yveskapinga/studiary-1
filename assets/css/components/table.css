@@ -1,0 +1,39 @@
+.table {
+  @apply border-separate;
+  border-spacing: 0;
+
+  thead {
+    th {
+      @apply p-2;
+      @apply font-normal;
+      @apply text-left;
+      @apply uppercase;
+      @apply text-gray-600 bg-gray-100;
+      @apply border-t border-b border-gray-200;
+
+      &:first-child {
+        @apply border-l;
+        @apply rounded-l;
+      }
+
+      &:last-child {
+        @apply text-right;
+        @apply border-r;
+        @apply rounded-r;
+      }
+    }
+  }
+
+  tbody {
+    @apply text-sm;
+
+    td {
+      @apply p-2;
+      @apply text-left;
+
+      &:last-child {
+        @apply text-right;
+      }
+    }
+  }
+}

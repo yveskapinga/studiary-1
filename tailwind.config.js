@@ -17,7 +17,9 @@ module.exports = {
           '900': '#111'
         }
       },
-
+      borderColor: theme => ({
+        default: theme('colors.gray.200', 'currentColor'),
+      }),
       borderRadius: {
         default: '.3rem'
       }

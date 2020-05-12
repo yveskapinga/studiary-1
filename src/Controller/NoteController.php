@@ -18,7 +18,7 @@ class NoteController extends AbstractController
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
 
-            return $this->render('note/index.html.twig', [
+            return $this->render('notes/index.html.twig', [
                 'notes' => $noteRepository->findAll(),
             ]);
         }
@@ -43,7 +43,7 @@ class NoteController extends AbstractController
                 return $this->redirectToRoute('notes_index');
             }
 
-            return $this->render('note/new.html.twig', [
+            return $this->render('notes/new.html.twig', [
                 'note' => $note,
                 'form' => $form->createView(),
             ]);
@@ -57,7 +57,7 @@ class NoteController extends AbstractController
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-            return $this->render('note/show.html.twig', [
+            return $this->render('notes/show.html.twig', [
                 'note' => $note,
             ]);
         }
@@ -79,7 +79,7 @@ class NoteController extends AbstractController
                 return $this->redirectToRoute('notes_index');
             }
 
-            return $this->render('note/edit.html.twig', [
+            return $this->render('notes/edit.html.twig', [
                 'note' => $note,
                 'form' => $form->createView(),
             ]);
