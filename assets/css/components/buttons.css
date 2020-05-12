@@ -24,7 +24,19 @@
   &:disabled,
   &.disabled {
     @apply bg-gray-500;
-    cursor: default;
+  }
+}
+
+.btn-red {
+  @apply text-white bg-red-600;
+
+  &:hover {
+    @apply bg-red-500;
+  }
+
+  &:disabled,
+  &.disabled {
+    @apply bg-red-300;
   }
 }
 
