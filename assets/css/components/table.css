@@ -29,7 +29,11 @@
     @apply text-sm;
     @apply text-left;
 
-    td {
+    th {
+      @apply font-semibold;
+    }
+
+    th, td {
       @apply p-3;
       @apply border-b border-gray-200;
 

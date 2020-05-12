@@ -15,6 +15,7 @@
 /* Variants */
 
 .btn-black {
+  @apply font-medium;
   @apply text-white bg-black;
 
   &:hover {
@@ -28,6 +29,7 @@
 }
 
 .btn-red {
+  @apply font-medium;
   @apply text-white bg-red-600;
 
   &:hover {

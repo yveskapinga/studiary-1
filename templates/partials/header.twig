@@ -7,7 +7,7 @@
                 </h1>
             {% else %}
                 {% set user = app.user %}
-                {% set currentPath = path(app.request.attributes.get('_route')) | trim('/') | split('/') %}
+                {% set currentPath = app.request.pathinfo | trim('/') | split('/') %}
                 <div>
                     <div class="flex items-center">
                         <a class="text-base font-semibold"
@@ -15,7 +15,7 @@
                             {{ user.firstName }} {{ user.lastName }}
                         </a>
                         {% for pageName in currentPath %}
-                            <span class="mx-2 text-gray-300">/</span>
+                            <span class="mx-2 text-base text-gray-300">/</span>
                             <span class="text-gray-600">{{ pageName }}</span>
                         {% endfor %}
                     </div>
