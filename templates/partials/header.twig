@@ -1,5 +1,5 @@
-<header class="py-4 border-b border-gray-200">
-    <div class="container flex justify-between text-sm">
+<header class="h-16 border-b border-gray-200">
+    <div class="container h-full flex items-stretch justify-between text-sm">
         <div class="flex items-center">
             {% if not app.user %}
                 <h1 class="text-base font-semibold tracking-tight">
@@ -7,10 +7,15 @@
                 </h1>
             {% else %}
                 {% set user = app.user %}
-                <a class="text-base font-semibold"
-                   href="{{ path('index') }}">
-                    {{ user.firstName }} {{ user.lastName }}
-                </a>
+                <div>
+                    <a class="text-base font-semibold"
+                       href="{{ path('index') }}">
+                        {{ user.firstName }} {{ user.lastName }}
+                    </a>
+                    {% if 'ROLE_TEACHER' in user.roles %}
+                        <div class="text-xs text-gray-400">Teacher</div>
+                    {% endif %}
+                </div>
                 {% if 'ROLE_STUDENT' in user.roles %}
                     <div class="ml-2">
                         |<span class="ml-2">{{ user.grade }}</span>
