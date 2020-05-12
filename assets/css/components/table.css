@@ -5,7 +5,7 @@
 
   thead {
     th {
-      @apply p-2;
+      @apply p-3;
       @apply font-normal;
       @apply text-left;
       @apply uppercase;
@@ -27,10 +27,11 @@
 
   tbody {
     @apply text-sm;
+    @apply text-left;
 
     td {
-      @apply p-2;
-      @apply text-left;
+      @apply p-3;
+      @apply border-b border-gray-200;
 
       &:last-child {
         @apply text-right;
