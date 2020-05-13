@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Grade;
 use App\Entity\Lesson;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -20,11 +21,39 @@ class LessonRepository extends ServiceEntityRepository
         parent::__construct($registry, Lesson::class);
     }
 
-    public function findLessonsByUser(User $user): array
+    public function findLessonsByGrade(Grade $grade): array
     {
         $queryBuilder = $this->createQueryBuilder('lesson')
                              ->where('lesson.grade = :grade')
-                             ->setParameter('grade', $user->getGrade())
+                             ->setParameter('grade', $grade)
+                             ->orderBy('lesson.start_date', 'ASC');
+
+        $query = $queryBuilder->getQuery();
+
+        return $query->execute();
+    }
+
+    public function findLessonsByGradeFromDate(Grade $grade, \DateTime $date): array
+    {
+        $queryBuilder = $this->createQueryBuilder('lesson')
+                             ->where('lesson.grade = :grade')
+                             ->andWhere('lesson.end_date > :date')
+                             ->setParameter('grade', $grade)
+                             ->setParameter('date', $date)
+                             ->orderBy('lesson.start_date', 'ASC');
+
+        $query = $queryBuilder->getQuery();
+
+        return $query->execute();
+    }
+
+    public function findLessonsByTeacherFromDate(User $teacher, \DateTime $date): array
+    {
+        $queryBuilder = $this->createQueryBuilder('lesson')
+                             ->where('lesson.teacher = :teacher')
+                             ->andWhere('lesson.end_date > :date')
+                             ->setParameter('teacher', $teacher)
+                             ->setParameter('date', $date)
                              ->orderBy('lesson.start_date', 'ASC');
 
         $query = $queryBuilder->getQuery();

@@ -1,40 +1,40 @@
 # Index
 index:
-  path: /
-  controller: App\Controller\HomeController::index
+    path: /
+    controller: App\Controller\HomeController::index
 
 # Login
 login:
-  path: /login
-  controller: App\Controller\SecurityController::login
+    path: /login
+    controller: App\Controller\SecurityController::login
 
 # Logout
-logout: 
-  path: /logout
-  controller: App\Controller\SecurityController::logout
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
 
-# Note
-note_index: 
-  path: /note/
-  controller: App\Controller\NoteController::index 
-  methods:  GET
+# Notes
+notes_index:
+    path: /notes/
+    controller: App\Controller\NoteController::index
+    methods: GET
 
-note_new: 
-  path: /note/new
-  controller: App\Controller\NoteController::new 
-  methods:  GET|POST
+notes_new:
+    path: /notes/new
+    controller: App\Controller\NoteController::new
+    methods: GET|POST
 
-note_show: 
-  path: /note/{id}
-  controller: App\Controller\NoteController::show
-  methods:  GET
+notes_show:
+    path: /notes/{id}
+    controller: App\Controller\NoteController::show
+    methods: GET
 
-note_edit: 
-  path: /note/{id}/edit
-  controller: App\Controller\NoteController::edit
-  methods:  GET|POST
+notes_edit:
+    path: /notes/{id}/edit
+    controller: App\Controller\NoteController::edit
+    methods: GET|POST
 
-note_delete: 
-  path: /note/{id}
-  controller: App\Controller\NoteController::delete
-  methods:  DELETE
+notes_delete:
+    path: /notes/{id}
+    controller: App\Controller\NoteController::delete
+    methods: DELETE

@@ -1,0 +1,44 @@
+{% extends 'layouts/page.twig' %}
+
+{% block body %}
+    <div class="container pt-8">
+        <h1 class="text-4xl font-semibold tracking-tight">
+            Notes
+        </h1>
+        <h2 class="mb-4 text-sm text-gray-700">Manage the notes of your students.</h2>
+
+        <a class="btn btn-outline mb-4"
+           href="{{ path('notes_new') }}">
+            Add a note
+        </a>
+
+        <table class="table">
+            <thead>
+            <tr class="text-xs">
+                <th>Student</th>
+                <th>Value</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for note in notes %}
+                <tr>
+                    <td>{{ note.student }}</td>
+                    <td>{{ note.value }}</td>
+                    <td>{{ note.description }}</td>
+                    <td>{{ note.date ? note.date|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline" href="{{ path('notes_edit', {'id': note.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

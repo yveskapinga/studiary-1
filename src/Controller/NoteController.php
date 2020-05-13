@@ -18,7 +18,7 @@ class NoteController extends AbstractController
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
 
-            return $this->render('note/index.html.twig', [
+            return $this->render('notes/index.html.twig', [
                 'notes' => $noteRepository->findAll(),
             ]);
         }
@@ -28,11 +28,9 @@ class NoteController extends AbstractController
 
     public function new(Request $request): Response
     {
-
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
             $note = new Note();
             $form = $this->createForm(NoteType::class, $note);
             $form->handleRequest($request);
@@ -42,10 +40,10 @@ class NoteController extends AbstractController
                 $entityManager->persist($note);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('note_index');
+                return $this->redirectToRoute('notes_index');
             }
 
-            return $this->render('note/new.html.twig', [
+            return $this->render('notes/new.html.twig', [
                 'note' => $note,
                 'form' => $form->createView(),
             ]);
@@ -59,8 +57,7 @@ class NoteController extends AbstractController
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
-            return $this->render('note/show.html.twig', [
+            return $this->render('notes/show.html.twig', [
                 'note' => $note,
             ]);
         }
@@ -70,21 +67,19 @@ class NoteController extends AbstractController
 
     public function edit(Request $request, Note $note): Response
     {
-
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
             $form = $this->createForm(NoteType::class, $note);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $this->getDoctrine()->getManager()->flush();
 
-                return $this->redirectToRoute('note_index');
+                return $this->redirectToRoute('notes_index');
             }
 
-            return $this->render('note/edit.html.twig', [
+            return $this->render('notes/edit.html.twig', [
                 'note' => $note,
                 'form' => $form->createView(),
             ]);
@@ -95,18 +90,16 @@ class NoteController extends AbstractController
 
     public function delete(Request $request, Note $note): Response
     {
-        
         $user = $this->getUser();
 
         if ($user && in_array('ROLE_TEACHER', $user->getRoles())) {
-
-            if ($this->isCsrfTokenValid('delete' . $note->getId(), $request->request->get('_token'))) {
+            if ($this->isCsrfTokenValid('delete'.$note->getId(), $request->request->get('_token'))) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->remove($note);
                 $entityManager->flush();
             }
-    
-            return $this->redirectToRoute('note_index');
+
+            return $this->redirectToRoute('notes_index');
         }
 
         return $this->redirectToRoute('index');

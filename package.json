@@ -5,6 +5,7 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
+        "serve": "php -S localhost:8000 -t public & npm run watch",
         "build": "encore production --progress"
     },
     "dependencies": {

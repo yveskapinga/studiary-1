@@ -1,0 +1,43 @@
+{% extends 'layouts/page.twig' %}
+
+{% block body %}
+    <div class="container pt-8">
+        <h1 class="mb-4 text-4xl font-bold tracking-tight leading-tight">
+            Welcome {{ app.user.firstName }}
+        </h1>
+
+        <div>
+            <h2 class="mb-3 text-lg font-semibold">Your next lessons</h2>
+
+            {% if lessons %}
+                <div class="max-w-lg text-sm">
+                    {% for lesson in lessons %}
+                        <div>
+                            <div class="py-1 px-2 font-semibold bg-gray-200 rounded">
+                                {{ lesson.startDate | date('D j M') }}
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="py-1 pl-4 pr-2 text-xs text-right">
+                                    <div>{{ lesson.startTime | date('H:i') }}</div>
+                                    <div>{{ lesson.endTime | date('H:i') }}</div>
+                                </div>
+
+                                <div class="py-1 px-2 truncate">
+                                    <div class="text-base truncate">{{ lesson.subject }}</div>
+                                    <div class="text-xs text-gray-600 truncate">{{ lesson.name }}</div>
+                                </div>
+
+                                <div class="py-1 pl-4 truncate">
+                                    {{ lesson.grade }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                No more lessons!
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

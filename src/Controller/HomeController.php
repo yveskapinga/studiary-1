@@ -12,9 +12,22 @@ class HomeController extends AbstractController
     {
         $user = $this->getUser();
 
-        if ($user && in_array('ROLE_STUDENT', $user->getRoles())) {
+        if (!$user) {
+            return $this->redirectToRoute('login');
+        }
+
+        if (in_array('ROLE_TEACHER', $user->getRoles())) {
             $repository = $this->getDoctrine()->getRepository(Lesson::class);
-            $lessons = $repository->findLessonsByUser($user);
+            $lessons = $repository->findLessonsByTeacherFromDate($user, new \DateTime());
+
+            return $this->render('pages/teacher_home.twig', [
+                'lessons' => $lessons
+            ]);
+        }
+
+        if (in_array('ROLE_STUDENT', $user->getRoles())) {
+            $repository = $this->getDoctrine()->getRepository(Lesson::class);
+            $lessons = $repository->findLessonsByGradeFromDate($user->getGrade(), new \DateTime());
 
             $repository = $this->getDoctrine()->getRepository(Note::class);
             $notes = $repository->findNotesByUser($user);

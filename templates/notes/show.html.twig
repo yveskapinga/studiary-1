@@ -1,12 +1,11 @@
 {% extends 'layouts/page.twig' %}
 
-<title>Note</title>
-
 {% block body %}
-    <h1>Note</h1>
+    <div class="container pt-8">
+        <h1 class="mb-4 text-4xl font-semibold tracking-tight leading-tight">Note</h1>
 
-    <table class="table">
-        <tbody>
+        <table class="table max-w-sm mb-4">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ note.id }}</td>
@@ -23,12 +22,12 @@
                 <th>Date</th>
                 <td>{{ note.date ? note.date|date('Y-m-d') : '' }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="{{ path('note_index') }}">Back to the list</a>
+        <a class="btn btn-black" href="{{ path('notes_edit', {'id': note.id}) }}">Edit</a>
+        <a class="btn btn-outline ml-2" href="{{ path('notes_index') }}">Back to the list</a>
 
-    <a href="{{ path('note_edit', {'id': note.id}) }}">Edit</a>
-
-    {{ include('note/_delete_form.html.twig') }}
+        {{ include('notes/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

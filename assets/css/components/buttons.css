@@ -2,19 +2,58 @@
   @apply inline-block;
   @apply text-center;
   @apply py-1 px-3;
+  @apply text-sm;
   @apply rounded;
 
   &:disabled,
   &.disabled {
-    background-color: theme('colors.gray.400');
-    cursor: default;
+    cursor: not-allowed;
   }
 }
 
+
+/* Variants */
+
 .btn-black {
+  @apply font-medium;
   @apply text-white bg-black;
 
-  &:not(.disabled):not(:disabled):hover {
+  &:hover {
     @apply bg-gray-800;
   }
+
+  &:disabled,
+  &.disabled {
+    @apply bg-gray-500;
+  }
+}
+
+.btn-red {
+  @apply font-medium;
+  @apply text-white bg-red-600;
+
+  &:hover {
+    @apply bg-red-500;
+  }
+
+  &:disabled,
+  &.disabled {
+    @apply bg-red-300;
+  }
+}
+
+.btn-outline {
+  @apply border border-gray-200;
+  @apply rounded;
+
+  &:hover {
+    @apply border-black;
+  }
+}
+
+
+/* Sizes */
+
+.btn-sm {
+  @apply py-0 px-2;
 }

@@ -19,6 +19,7 @@ git clone https://github.com/maelquerre/studiary
 2. Install the dependencies
 ```sh
 composer install
+npm install
 ```
 
 ## Develop

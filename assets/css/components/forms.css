@@ -5,11 +5,17 @@
 
 .form-control {
   @apply w-full;
-  @apply py-1;
-  @apply border-b border-gray-500;
+  @apply py-1 px-2;
+  @apply text-sm;
+  @apply border border-gray-200;
+  @apply rounded;
 
   &:focus {
-    @apply outline-none border-black;
+    @apply outline-none border-gray-600;
+  }
+
+  &::placeholder {
+    @apply text-gray-400;
   }
 }
 
@@ -17,25 +23,24 @@
   & > div {
     @apply mb-4;
   }
-  select{
-    @apply bg-gray-200;
-    @apply border; 
-    @apply border-gray-200; 
-    @apply text-gray-700; 
-    @apply py-3; 
-    @apply px-4; 
-    @apply pr-8; 
-    @apply rounded; 
+
+  select {
+    @apply block;
+    @apply py-2 pl-4 pr-8;
+    @apply bg-white;
+    @apply border border-gray-200;
+    @apply rounded;
     @apply leading-tight;
-    
+    /*@apply appearance-none;*/
+
     &:focus {
-      @apply outline-none; 
-      @apply bg-white; 
+      @apply outline-none;
+      @apply bg-white;
       @apply border-gray-500;
     }
   }
 
-  input[type="text"]{
+  input[type="text"] {
     @apply form-control;
   }
 
@@ -43,5 +48,4 @@
     @apply form-label;
     @apply block;
   }
-  
 }

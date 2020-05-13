@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+
+{{ form_widget(form, {
+    'attr': {
+        'class': 'form-symf sm:max-w-sm text-sm'
+    }
+}) }}
+<button class="btn btn-black mt-4">
+    {{ button_label|default('Add note') }}
+</button>
+{{ form_end(form) }}

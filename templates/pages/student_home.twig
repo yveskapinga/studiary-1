@@ -11,18 +11,23 @@
                 <h2 class="mb-3 text-lg font-semibold">Your next lessons</h2>
 
                 {% if lessons %}
-                    <div>
+                    <div class="text-sm">
                         {% for lesson in lessons %}
                             <div>
                                 <div class="px-2 py-1 font-semibold bg-gray-200 rounded">
                                     {{ lesson.startDate | date('D j M', timezone="Europe/Paris") }}
                                 </div>
-                                <div class="flex">
+
+                                <div class="flex items-center">
                                     <div class="pl-4 pr-2 py-1 text-xs text-right">
                                         <div>{{ lesson.startTime | date('H:i', timezone="Europe/Paris") }}</div>
                                         <div>{{ lesson.endTime | date('H:i', timezone="Europe/Paris") }}</div>
                                     </div>
-                                    <div class="px-2 py-1">{{ lesson.subject }}</div>
+
+                                    <div class="py-1 px-2 truncate">
+                                        <div class="text-base truncate">{{ lesson.subject }}</div>
+                                        <div class="text-xs text-gray-600 truncate">{{ lesson.name }}</div>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
