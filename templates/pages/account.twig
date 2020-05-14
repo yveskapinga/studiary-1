@@ -6,11 +6,49 @@
             Account
         </h1>
 
-        <div>
-            <div class="p-6 border border-gray-200 rounded">
-                <div class="text-xl font-semibold tracking-tight">Your Password</div>
+        <div class="flex flex-wrap">
+            <div class="w-full mb-4 md:w-1/4 md:mb-0 text-sm">
+                <div class="font-semibold">Security</div>
+            </div>
 
-                <input type="text" class="form-control">
+            <div class="w-full md:w-3/4">
+                <form class="p-6 border border-gray-200 rounded"
+                      method="POST">
+                    <div class="text-xl font-semibold tracking-tight mb-4">Change Password</div>
+
+                    {% if errors is defined %}
+                        {% for error in errors %}
+                            <div class="text-xs text-red-600 mb-2">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="max-w-sm mb-8">
+                        <input
+                            class="form-control mb-8"
+                            name="current_password"
+                            placeholder="Your current password"
+                            type="password"
+                        >
+
+                        <input
+                            class="form-control mb-4"
+                            name="new_password"
+                            placeholder="Your new password"
+                            type="password"
+                        >
+                        <input
+                            class="form-control"
+                            name="new_password_confirmation"
+                            placeholder="Confirm new password"
+                            type="password"
+                        >
+                    </div>
+
+                    <button class="btn btn-black"
+                            type="submit">
+                        Save
+                    </button>
+                </form>
             </div>
         </div>
     </div>

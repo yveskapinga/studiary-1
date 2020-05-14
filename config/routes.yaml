@@ -7,6 +7,12 @@ index:
 account:
     path: /account
     controller: App\Controller\AccountController::index
+    methods: GET
+
+account_update_password:
+    path: /account
+    controller: App\Controller\AccountController::updatePassword
+    methods: POST
 
 # Login
 login:
