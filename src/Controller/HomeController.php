@@ -30,7 +30,7 @@ class HomeController extends AbstractController
             $lessons = $repository->findLessonsByGradeFromDate($user->getGrade(), new \DateTime());
 
             $repository = $this->getDoctrine()->getRepository(Note::class);
-            $notes = $repository->findNotesByUser($user);
+            $notes = $repository->findNotesByUser($user, 3);
 
             return $this->render('pages/student_home.twig', [
                 'lessons' => $lessons,

@@ -25,12 +25,17 @@ class NoteRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('note')
                              ->where('note.student = :user')
                              ->setParameter('user', $user)
-                             ->orderBy('note.date', 'DESC');
+                             ->orderBy('note.date', 'DESC') ;
+
+        if ($limit !== null) {
+            $queryBuilder->setMaxResults($limit);
+        }
 
         $query = $queryBuilder->getQuery();
 
         return $query->execute();
     }
+
 
     // /**
     //  * @return Note[] Returns an array of Note objects
