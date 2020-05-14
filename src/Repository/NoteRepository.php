@@ -6,6 +6,7 @@ use App\Entity\Note;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Note|null find($id, $lockMode = null, $lockVersion = null)
@@ -20,17 +21,22 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
-    public function findNotesByUser(User $user): array
+    public function findNotesByUser(User $user, $limit = NULL): array
     {
         $queryBuilder = $this->createQueryBuilder('note')
                              ->where('note.student = :user')
                              ->setParameter('user', $user)
-                             ->orderBy('note.date', 'DESC');
+                             ->orderBy('note.date', 'DESC') ;
+
+        if ($limit != NULL) {
+            $queryBuilder->setMaxResults($limit);
+        }
 
         $query = $queryBuilder->getQuery();
 
         return $query->execute();
     }
+
 
     // /**
     //  * @return Note[] Returns an array of Note objects
