@@ -20,7 +20,7 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
-    public function findNotesByUser(User $user): array
+    public function findNotesByUser(User $user, $limit = null): array
     {
         $queryBuilder = $this->createQueryBuilder('note')
                              ->where('note.student = :user')
