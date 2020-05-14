@@ -30,7 +30,7 @@
 
         <div class="flex items-center text-gray-600">
             {% if app.user %}
-                {% if 'ROLE_TEACHER' in user.roles %}
+                {% if 'ROLE_TEACHER' in user.roles or 'ROLE_STUDENT' in user.roles %}
                     <a class="hover:text-black mr-8"
                        href="{{ path('notes_index') }}">
                         Notes
