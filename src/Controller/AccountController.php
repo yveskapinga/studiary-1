@@ -39,6 +39,9 @@ class AccountController extends AbstractController
                 'errors' => ['The current password is not valid.']
             ]);
         }
-        return $this->render('pages/account.twig');
+
+        return $this->render('pages/account.twig', [
+            'success' => 'Your password has been successfully updated.'
+        ]);
     }
 }
