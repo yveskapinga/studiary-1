@@ -36,6 +36,11 @@
                         Notes
                     </a>
                 {% endif %}
+
+                <a class="hover:text-black mr-8"
+                   href="{{ path('account') }}">
+                    Account
+                </a>
                 <a class="hover:text-black" href="{{ path('logout') }}">Logout</a>
             {% else %}
                 <a class="hover:text-black" href="{{ path('login') }}">Login</a>

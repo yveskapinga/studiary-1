@@ -3,3 +3,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Typography */
+
+.large-title {
+  @apply text-4xl;
+  @apply font-semibold;
+  @apply tracking-tight;
+  @apply leading-tight;
+}

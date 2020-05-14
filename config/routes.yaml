@@ -3,6 +3,17 @@ index:
     path: /
     controller: App\Controller\HomeController::index
 
+# Account
+account:
+    path: /account
+    controller: App\Controller\AccountController::index
+    methods: GET
+
+account_update_password:
+    path: /account
+    controller: App\Controller\AccountController::updatePassword
+    methods: POST
+
 # Login
 login:
     path: /login

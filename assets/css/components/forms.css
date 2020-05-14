@@ -5,8 +5,9 @@
 
 .form-control {
   @apply w-full;
-  @apply py-1 px-2;
+  @apply px-3;
   @apply text-sm;
+  @apply leading-8;
   @apply border border-gray-200;
   @apply rounded;
 
