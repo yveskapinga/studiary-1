@@ -7,6 +7,7 @@ School management system.
 ### Prerequisites
 
 - PHP 7.3.9 or higher
+- Composer
 - [Node.js](https://nodejs.org/en/)
 
 ### Installation
