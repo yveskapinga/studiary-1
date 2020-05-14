@@ -3,6 +3,12 @@ index:
     path: /
     controller: App\Controller\HomeController::index
 
+# Account
+account:
+    path: /account
+    controller: App\Controller\AccountController::index
+
+
 # Login
 login:
     path: /login

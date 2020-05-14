@@ -3,6 +3,7 @@
   @apply text-center;
   @apply py-1 px-3;
   @apply text-sm;
+  @apply font-medium;
   @apply rounded;
 
   &:disabled,
