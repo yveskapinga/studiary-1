@@ -27,7 +27,7 @@ class NoteRepository extends ServiceEntityRepository
                              ->setParameter('user', $user)
                              ->orderBy('note.date', 'DESC') ;
 
-        if ($limit !== null) {
+        if (is_null($limit)) {
             $queryBuilder->setMaxResults($limit);
         }
 
@@ -35,34 +35,4 @@ class NoteRepository extends ServiceEntityRepository
 
         return $query->execute();
     }
-
-
-    // /**
-    //  * @return Note[] Returns an array of Note objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('n.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Note
-    {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
