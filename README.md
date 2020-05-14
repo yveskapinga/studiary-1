@@ -22,6 +22,8 @@ composer install
 npm install
 ```
 
+In order to access to the admin section, you have to manually create an admin first in the database, with the role `ROLE_ADMIN`.
+
 ## Develop
 
 Start the local Symfony web server
