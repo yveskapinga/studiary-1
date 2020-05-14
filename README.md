@@ -31,14 +31,10 @@ In order to access to the admin section, and therefore being able to add entity 
 
 ## Develop
 
-Start the local Symfony web server
-```sh
-symfony server:start
-```
+### Run the local web server and watch files
 
-Or with the PHP built-in server
-```sh
-php -S localhost:8000 -t public/
-```
+````sh
+npm run serve
+````
 
-These commands start a development server on http://localhost:8000.
+This will start the PHP built-in server on http://localhost:8000.
