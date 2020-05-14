@@ -23,6 +23,16 @@ class NoteController extends AbstractController
             ]);
         }
 
+        if (in_array('ROLE_STUDENT', $user->getRoles())) {
+
+            $repository = $this->getDoctrine()->getRepository(Note::class);
+            $notes = $repository->findNotesByUser($user);
+
+            return $this->render('pages/student_note.twig', [
+                'notes' => $notes,
+            ]);
+        }
+
         return $this->redirectToRoute('index');
     }
 
