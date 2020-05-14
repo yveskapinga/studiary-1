@@ -57,5 +57,6 @@
 /* Sizes */
 
 .btn-sm {
-  @apply py-0 px-2;
+  @apply px-2;
+  @apply leading-normal;
 }
