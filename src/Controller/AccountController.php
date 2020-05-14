@@ -18,7 +18,7 @@ class AccountController extends AbstractController
         return $this->render('pages/account.twig');
     }
 
-    public function updatePassword(Request $request, UserPasswordEncoderInterface $passwordEncoder, ValidatorInterface $validator)
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
