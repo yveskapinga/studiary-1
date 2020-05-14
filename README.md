@@ -7,7 +7,6 @@ School management system.
 ### Prerequisites
 
 - PHP 7.3.9 or higher
-- [Symfony CLI](https://symfony.com/download)
 - [Node.js](https://nodejs.org/en/)
 
 ### Installation
