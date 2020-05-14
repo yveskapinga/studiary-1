@@ -20,6 +20,13 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
+    /**
+     * Find notes for a specific user, with or without a limit for the results.
+     *
+     * @param User $user
+     * @param null $limit
+     * @return array
+     */
     public function findNotesByUser(User $user, $limit = null): array
     {
         $queryBuilder = $this->createQueryBuilder('note')
