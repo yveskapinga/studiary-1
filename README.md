@@ -12,17 +12,22 @@ School management system.
 
 ### Installation
 
-1. Clone the repo
+#### Clone the repository
+
 ```sh
 git clone https://github.com/maelquerre/studiary
 ```
-2. Install the dependencies
+
+#### Install dependencies
+
 ```sh
 composer install
 npm install
 ```
 
-In order to access to the admin section, you have to manually create an admin first in the database, with the role `ROLE_ADMIN`.
+#### Initialise a first admin user
+
+In order to access to the admin section, and therefore being able to add entity data such as other users, lessons, etc., you have to manually create an admin user with the role `ROLE_ADMIN`. Then log in to the app via the client interface at `/login`.
 
 ## Develop
 
