@@ -34,7 +34,7 @@ class HomeController extends AbstractController
 
             return $this->render('pages/student_home.twig', [
                 'lessons' => $lessons,
-                'notes' => $notes,
+                'notes' => array_slice($notes, 0, 3),
             ]);
         }
 
